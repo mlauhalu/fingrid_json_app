@@ -162,10 +162,10 @@ rest:
         value_template: >-
           {% set value_json = value_json.data | selectattr('datasetId', 'eq', 209) | map(attribute='value') | first %}
           {% set mapper =  {
-            1 : 'Normal',
-            2 : 'Degraded',
-            3 : 'At risk',
-            4 : 'Severe disturbance',
-            5 : 'Severe disturbance (reversal)' } %}
+            1 : 'Normaali',
+            2 : 'Heikentynyt',
+            3 : 'Vaarassa',
+            4 : 'Vakava häiriö',
+            5 : 'Vakava häiriö (palautus)' } %}
           {% set state =  value_json %}
-          {{ mapper[state] if state in mapper else 'Not known' }}
+          {{ mapper[state] if state in mapper else 'Ei tiedossa' }}
